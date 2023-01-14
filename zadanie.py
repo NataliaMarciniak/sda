@@ -19,8 +19,14 @@ def sort_list(numbers):
                                 passed_list.append(y)
                             elif isinstance(y, str):
                                 continue
+                            elif isinstance(y, list):
+                                for z in y:
+                                    if isinstance(z, int):
+                                        passed_list.append(z)
+                                    elif isinstance(z, str):
+                                        continue
     return passed_list
 
-example = [1, [2, 3, [4, 5]], 7, 8, [[9], 10]]
+example = [1, [2, 3, [4, 5]], 7, 8, [[9], [[[10]]]]]
 print("Original list: ", example)
 print("New list: ", sort_list(example))
